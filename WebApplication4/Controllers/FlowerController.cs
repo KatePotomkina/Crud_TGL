@@ -13,16 +13,14 @@ namespace WebApplication4.Controllers
 			FlowerDAO cartoonDAO = new FlowerDAO();
 			list = cartoonDAO.FetchAll();
 			return View("Flower", list);
-			
-		}
+					}
 		public IActionResult Details(int Id  )
 		{
 			FlowerModel flower;
 			FlowerDAO flowerDAO = new FlowerDAO();
 			 flower = flowerDAO.FetchOne(Id);
 			return View("Details", flower);
-			;
-		}
+					}
 		public IActionResult Create()
 		{
 			return View("FlowerForm");
@@ -32,14 +30,12 @@ namespace WebApplication4.Controllers
 			FlowerDAO flowerDAO = new FlowerDAO();
 			flowerDAO.Create(flowerModel);
 			return View("FlowerForm", flowerModel);
-
-		}
+					}
 		public IActionResult Edit(int id)
 		{
 
 			FlowerDAO flowerDAO = new FlowerDAO();
 			FlowerModel flowermodel = flowerDAO.FetchOne(id);
-
 			return View("FlowerForm", flowermodel);
 		}
 		public IActionResult Delete(int id)
@@ -49,6 +45,5 @@ namespace WebApplication4.Controllers
 			List<FlowerModel> flowerslist = flowerDAO.FetchAll();
 			return View("Flower", flowerslist);
 		}
-
-	}
+			}
 }
