@@ -22,10 +22,6 @@ namespace WebApplication4.Data
                     while (reader.Read())
                     {
                         FlowerModel flower = new FlowerModel(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2), reader.GetInt32(3));
-                        //flower.Id = reader.GetInt32(0);
-                        //flower.Name = reader.GetString(1);
-                        //flower.Price = reader.GetInt32(2);
-                        //flower.Amount = reader.GetInt32(3);
                         list.Add(flower);
 
                     }
@@ -56,7 +52,7 @@ namespace WebApplication4.Data
                             }
             return flower;
         }
-        public int Create(FlowerModel flowermodel)
+        public int CreateAndEdit(FlowerModel flowermodel)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -76,7 +72,7 @@ namespace WebApplication4.Data
                 command.Parameters.Add("@Amount", System.Data.SqlDbType.Int, 100).Value = flowermodel.Amount;
                 connection.Open();
                 int newId=command.ExecuteNonQuery();
-                                return newId;
+                return newId;
             }
                     }
         public int Delete(int id)
@@ -84,11 +80,11 @@ namespace WebApplication4.Data
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string sqlQuery = "DELETE FROM [dbo].[table] WHERE Id = @id";
-                                SqlCommand command = new SqlCommand(sqlQuery, connection);
+                 SqlCommand command = new SqlCommand(sqlQuery, connection);
                 command.Parameters.Add("@id", System.Data.SqlDbType.Int).Value = id;
-                               connection.Open();
+                 connection.Open();
                 int DeleteId = command.ExecuteNonQuery();
-                                return DeleteId;
+               return DeleteId;
             }
         }
     }

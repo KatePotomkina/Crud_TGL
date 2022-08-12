@@ -7,10 +7,10 @@
 
 <h1>FlowerForm</h1>
 
-<h4>FlowerModel</h4>
+
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="table-header">
         <form asp-action="ProcessCreate">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         
@@ -29,7 +29,7 @@
                 <input asp-for="Amount" class="form-control" />
                 <span asp-validation-for="Amount" class="text-danger"></span>
             </div>
-            <input type="hidden" name="Id" value="@Model.Id" />
+            @*<input type="hidden" name="Id" value="@Model.Id" />*@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
