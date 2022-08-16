@@ -25,12 +25,17 @@ namespace WebApplication4.Controllers
 		{
 			return View("FlowerForm");
 		}
+		
+		 
 		public IActionResult ProcessCreate( FlowerModel flowerModel)
 		{
 			FlowerDAO flowerDAO = new FlowerDAO();
 			flowerDAO.CreateAndEdit(flowerModel);
 			return View("FlowerForm", flowerModel);
 					}
+
+		
+
 		public IActionResult Edit(int id)
 		{
 
